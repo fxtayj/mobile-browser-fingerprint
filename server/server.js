@@ -68,7 +68,7 @@ app.use(express.static(__dirname + '/../public'), {
 app.post('/process_post', function(req, res) {
 
   var reqBody = req.body;
-  console.log(reqBody);
+  console.log('reqBody=:'+reqBody);
   if (reqBody.hasOwnProperty('Error')) {
     try {
       fs.appendFile(__dirname + '/../data/error-log.txt', JSON.stringify(reqBody) + "\n", 'utf8');
@@ -80,6 +80,7 @@ app.post('/process_post', function(req, res) {
 
   } else {
     try {
+      // /home/tony/deploy/mobile-browser-fingerprint/server/../data/data.txt'
       fs.appendFile(__dirname + '/../data/data.txt', JSON.stringify(reqBody) + "\n", 'utf8');
       res.send(reqBody);
 

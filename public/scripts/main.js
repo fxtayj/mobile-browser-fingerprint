@@ -1429,7 +1429,7 @@ function printOnScreen() {
 function sendToServer(data) {
   $.ajax({
     type: "POST",
-    url: "https://ashara.cs.helsinki.fi/process_post",
+    url: "https://lolijam.com/mobilefp/process_post",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function(suc) {
@@ -1446,6 +1446,7 @@ function functionCallFacade() {
   var output = document.getElementById("out");
   output.innerHTML = "<h1 align ='center'> <img src='image/Fingerprint.png'> Fingerprinting…  </h1>  ";
   getHttpHeadersInfoR();
+  console.log('fingerprintData1='+fingerprintData)
   getWeglRendererAndVendorInfoR();
   getBrowserInfoR();
   //getDeviceLightInfoR();
@@ -1456,6 +1457,7 @@ function functionCallFacade() {
   getMediaDevicesInfoR();
   getBrowserPermissionsInfo('permissions_after_fingerprint');
   getFingerprint2LibraryInfoR();
+  console.log('fingerprintData2='+fingerprintData)
   getDetectRtcLibraryInfoR();
   audioFingerprintInfoR();
   mimeTypeInfoR();
@@ -1466,6 +1468,7 @@ function functionCallFacade() {
   audioContextPropertiesInfoR();
   audioScillatorCompressorInfoR();
   getInstalledFontsUsingJSR();
+  console.log('fingerprintData3='+fingerprintData)
   //getInstalledFontsUsingFlashR();
   setTimeout(function() {
     cleanDataR();
@@ -1473,7 +1476,7 @@ function functionCallFacade() {
     sendToServerR(finalData);
     console.log(finalData);
 
-  }, 5000);
+  }, 10000);
 
 }
 
@@ -1516,7 +1519,7 @@ $(document).ready(function() {
   console.log("ready!");
   functionCallFacade2R();
 });
-//console.log(fingerprintData);
+console.log('fingerprintData='+fingerprintData);
 $("#btn").on("click", function() {
   document.getElementById("btn").disabled = true;
   mainEntryFunctionR();
