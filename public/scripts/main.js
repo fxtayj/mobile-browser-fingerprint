@@ -1429,7 +1429,7 @@ function printOnScreen() {
 function sendToServer(data) {
   $.ajax({
     type: "POST",
-    url: "https://lolijam.com/mobilefp/process_post",
+    url: "http://lolijam.com/mobilefp/process_post",
     data: JSON.stringify(data),
     contentType: "application/json",
     success: function(suc) {
